@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard Asuransi</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header> <h1>Dashboard Asuransi</h1> 
+    <nav class="main-nav" style="display:none;"> 
+      <a href="#">Marketplace</a> 
+      <a href="#">History</a> 
+      <a href="#">Logout</a> 
+    </nav> 
+  </header>
+
+  <main>
+    <!-- SIGNUP -->
+    <section id="signupSection" class="card-section">
+      <h2>Buat Akun</h2>
+      <form id="signupForm">
+        <input type="text" id="suName" placeholder="Nama Lengkap" required>
+        <input type="email" id="suEmail" placeholder="Email" required>
+        <input type="password" id="suPass" placeholder="Password" required>
+        <input type="password" id="suPass2" placeholder="Ulangi Password" required>
+        <input type="tel" id="suPhone" placeholder="Nomor HP (08xxx)" required>
+        <button type="submit">Daftar</button>
+        <p id="suMsg"></p>
+      </form>
+      <p>Sudah punya akun? <a href="#" id="toLogin">Login di sini</a></p>
+    </section>
+
+    <!-- LOGIN -->
+    <section id="loginSection" class="card-section" style="display:none;">
+      <h2>Login</h2>
+      <form id="loginForm">
+        <input type="email" id="loginEmail" placeholder="Email" required>
+        <input type="password" id="loginPass" placeholder="Password" required>
+        <button type="submit">Login</button>
+        <p id="loginMsg"></p>
+      </form>
+      <p>Belum punya akun? <a href="#" id="toSignup">Daftar di sini</a></p>
+    </section>
+
+    <!-- HOME -->
+    <section id="marketSection" class="card-section" style="display:none;">
+      <h2 class="market-title" style="text-align:center; font-weight:bold;">
+        Marketplace Asuransi
+      </h2>
+      <p class="market-desc" style="text-align:center; max-width:700px; margin:0 auto 20px;">
+        Jelajahi layanan asuransi kami melalui menu di bawah ini, 
+        temukan perlindungan terbaik sesuai kebutuhan Anda.
+      </p>
+
+      <div class="filter-bar" style="text-align:center; margin-bottom:20px;">
+        <label>Filter:</label>
+        <select id="filterCat">
+          <option value="all">Semua</option>
+          <option value="kesehatan">Kesehatan</option>
+          <option value="mobil">Mobil</option>
+          <option value="jiwa">Jiwa</option>
+        </select>
+      </div>
+
+      <div class="product-grid" id="productGrid"></div>
+    </section>
+
+    <!-- DETAIL -->
+    <section id="detailSection" class="card-section" style="display:none;">
+      <h2 id="detailTitle"></h2>
+      <form id="detailForm"></form>
+      <p id="premiResult"></p>
+      <button id="toCheckout">Checkout</button>
+    </section>
+
+    <!-- CHECKOUT -->
+    <section id="checkoutSection" class="card-section" style="display:none;">
+      <h2>Checkout</h2>
+      <p id="checkoutInfo"></p>
+
+      <!-- Pilihan pembayaran -->
+      <label><strong>Metode Pembayaran:</strong></label>
+      <select id="paymentMethod">
+        <option value="">-- Pilih Metode --</option>
+        <option value="transfer">Transfer Bank</option>
+        <option value="ewallet">E-Wallet</option>
+        <option value="creditcard">Kartu Kredit</option>
+      </select><br><br>
+
+      <label><strong>Pilih Bank:</strong></label>
+      <select id="bank">
+        <option value="">-- Pilih Bank --</option>
+        <option value="BCA">BCA</option>
+        <option value="Mandiri">Mandiri</option>
+        <option value="BRI">BRI</option>
+        <option value="BNI">BNI</option>
+      </select><br><br>
+
+      <div class="checkout-actions">
+        <button onclick="processPayment('Lunas')">Konfirmasi</button>
+        <button onclick="processPayment('Pending')">Pending</button>
+        <button onclick="processPayment('Gagal')">Batalkan</button>
+      </div>
+    </section>
+
+    <!-- HISTORY -->
+    <section id="historySection" style="display:none;">
+      <h2>Histori Pembelian</h2>
+      <table class="history-table">
+        <thead>
+          <tr>
+            <th>Produk</th>
+            <th>Jenis</th>
+            <th>Tanggal</th>
+            <th>Harga</th>
+            <th>Metode</th>
+            <th>Bank</th>
+            <th>Status</th>
+            <th>Aksi</th>
+          </tr>
+        </thead>
+        <tbody id="historyTable"></tbody>
+      </table>
+      <div style="text-align:right; margin-top:10px;">
+        <button id="clearHistoryBtn">Clear History</button>
+      </div>
+    </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
