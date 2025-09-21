@@ -121,7 +121,7 @@ header {
   font-size: 18px;
 }
 
-/* === FORM ELEMENTS, BUTTON, TABLE, STATUS (biarkan seperti sebelumnya) === */
+/* === FORM ELEMENTS, BUTTON, TABLE, STATUS === */
 input,
 select {
   width: 100%;
@@ -155,10 +155,6 @@ button:hover {
   background: linear-gradient(90deg, #0d5c88, #106fa4);
   transform: translateY(-2px);
 }
-
-/* ...lanjutkan bagian pesan, tabel, status badge seperti punyamu */
-
-
 /* LINK */
 a {
   color: #106fa4;
@@ -328,4 +324,5 @@ td:last-child {
   border-radius: 20px;
   display: inline-block;
 }
+
 
